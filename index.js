@@ -40,10 +40,10 @@ var colors = [
   ['rgba(255,85,85,0.5)', 15, 10, pi / 2],
   ['rgba(201,31,55,0.9)', 10, 8, pi],
   ['rgba(250,240,240,0.8)', 10, 8, 1.5 * pi],
-  ['#22A7F0', 5, 3, 1.5 * pi],
-  ['#F7CA18', 5, 3, 1.5 * pi],
-  ['#875F9A', 5, 3, 1.5 * pi],
-  ['#87D37C', 5, 3, 1.5 * pi],
+  ['#22A7F0', 5, 2, 1.5 * pi],
+  ['#F7CA18', 5, 2, 1.5 * pi],
+  ['#875F9A', 5, 2, 1.5 * pi],
+  ['#87D37C', 5, 2, 1.5 * pi],
 ]
 
 /*
@@ -165,7 +165,7 @@ var Scene = function () {
   }
 
   var clearCanvas = function () {
-    ctx.fillStyle = 'rgba(200,60,60,.1)'
+    ctx.fillStyle = 'transparent'
     ctx.fillRect(0, 0, canvas.width, canvas.height)
   }
 
@@ -207,20 +207,14 @@ var Scene = function () {
   return this
 }
 
-
-
 window.onload = () => {
 
   var scene = new Scene()
   scene.run()
 
   window.onresize = () => {
-    console.log(`1`, document.documentElement.offsetWidth)
-
     canvas.width = document.documentElement.offsetWidth
-    canvas.height = document.documentElement.offsetHeight
-
-    console.log(`canvas.height`, canvas.height)
+    canvas.height = document.documentElement.offsetHeight / 2
 
     center[0] = canvas.width / 2
     center[1] = canvas.height / 2
